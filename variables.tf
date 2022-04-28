@@ -27,11 +27,6 @@ variable "compartment_ocid" {
   type = string
 }
 
-variable "config_file_profile" {
-  type        = string
-  description = "The profile name if you would like to use a custom profile in the OCI config file to provide the authentication credentials. See https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformproviderconfiguration.htm#terraformproviderconfiguration_topic-SDK_and_CLI_Config_File"
-}
-
 variable "ssh_public_key" {
   type        = string
   description = "An SSH public key for use with a virtual machine."
