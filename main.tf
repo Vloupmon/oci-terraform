@@ -70,8 +70,8 @@ resource "oci_core_security_list" "security_list" {
     description = "SSH"
 
     tcp_options {
-      max = "22"
       min = "22"
+      max = "22"
     }
   }
 
@@ -81,8 +81,8 @@ resource "oci_core_security_list" "security_list" {
     description = "HTTP"
 
     tcp_options {
-      max = "80"
       min = "80"
+      max = "80"
     }
   }
 
@@ -92,8 +92,8 @@ resource "oci_core_security_list" "security_list" {
     description = "HTTPS"
 
     tcp_options {
-      max = "443"
       min = "443"
+      max = "443"
     }
   }
 
@@ -103,8 +103,8 @@ resource "oci_core_security_list" "security_list" {
     description = "Caddy HTTP"
 
     tcp_options {
-      max = "8080"
       min = "8080"
+      max = "8080"
     }
   }
 
@@ -114,8 +114,30 @@ resource "oci_core_security_list" "security_list" {
     description = "Caddy HTTPS"
 
     tcp_options {
-      max = "4443"
       min = "4443"
+      max = "4443"
+    }
+  }
+
+  ingress_security_rules {
+    protocol    = "17"
+    source      = "0.0.0.0/0"
+    description = "Torrent DHT"
+
+    udp_options {
+      min = "6881"
+      max = "6881"
+    }
+  }
+
+  ingress_security_rules {
+    protocol    = "6"
+    source      = "0.0.0.0/0"
+    description = "Torrent TCP"
+
+    tcp_options {
+      min = "6890"
+      max = "6999"
     }
   }
 }
