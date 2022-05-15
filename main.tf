@@ -140,6 +140,17 @@ resource "oci_core_security_list" "security_list" {
       max = "6999"
     }
   }
+
+  ingress_security_rules {
+    protocol    = "17"
+    source      = "0.0.0.0/0"
+    description = "Mosh"
+
+    udp_options {
+      min = "60000"
+      max = "61000"
+    }
+  }
 }
 
 // Compute
